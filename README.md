@@ -28,7 +28,7 @@
 
 - [Versão 1](https://github.com/oficina-do-brito/recode_m2_agencia)
 - [Versão 2 - console](https://github.com/oficina-do-brito/recode_m3_agencia)
-- [Versão 3 - web](https://github.com/oficina-do-brito/recode_m4_agencia)
+- [Versão Atual 3 - web](https://github.com/oficina-do-brito/recode_m4_agencia)
   - Versão 3.1
   - Versão 3.2
 - Versão 3
