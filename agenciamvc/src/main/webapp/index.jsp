@@ -6,8 +6,10 @@
 <meta charset="UTF-8">
 <title>Agencia de Viagens</title>
 <link rel="stylesheet" href="./assets/css/reset.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<script defer
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/card.css">
 <link rel="stylesheet"
@@ -17,7 +19,7 @@
 	<!-- TODO: navbar stick  -->
 	<nav class="navbar w-100 sticky-md-top navbar-expand-lg">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="./index.html"> <!-- TODO: Arrumar tamanho da logo  -->
+			<a class="navbar-brand" href="home">
 				<img src="./assets/img/logo.png" alt="logo da agencia" width="50"
 				height="50">
 			</a>
@@ -30,13 +32,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="./index.html">Home</a></li>
+						aria-current="page" href="home">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="./destinos.html">Destinos</a></li>
+						href="destino">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link" href="#promocoes">Promoções</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="./contatos.html">Contatos</a></li>
+						href="contatos">Contatos</a></li>
 				</ul>
 				<button type="button"
 					class="btn btn-outline-primary rounded-pill mx-md-5"
@@ -53,7 +55,7 @@
 							for="floatingPassword">Password</label>
 					</div>
 					<div class="container d-flex">
-						<a class="nav-link" href="./manage_clientes.html">
+						<a class="nav-link" href="ManageClients">
 							<button type="submit"
 								class="btn btn-outline-primary rounded-pill mx-md-5">Entrar</button>
 						</a> <a class="nav-link">
@@ -759,7 +761,7 @@
 				<h5>Entre em contato conosco</h5>
 			</li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter"
-				href="./contatos.html" aria-current="page">Realizar contato</a></li>
+				href="contatos" aria-current="page">Realizar contato</a></li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter">84
 					99999999</a></li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter">@email.com</a>

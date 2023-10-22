@@ -18,7 +18,7 @@
 	<!-- TODO: navbar stick  -->
 	<nav class="navbar w-100 sticky-md-top navbar-expand-lg">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="./index.html"> <img
+			<a class="navbar-brand" href="home"> <img
 				src="./assets/img/logo.png" alt="logo da agencia" width="50"
 				height="50">
 			</a>
@@ -31,13 +31,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="./index.html">Home</a></li>
+						href="home">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="./destinos.html">Destinos</a></li>
+						href="destino">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="index.html#promocoes">Promoções</a></li>
+						href="home#promocoes">Promoções</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="./contatos.html">Contatos</a></li>
+						href="contatos">Contatos</a></li>
 				</ul>
 			</div>
 		</div>
@@ -84,7 +84,7 @@
 											</div>
 									</span> <span class="text">Usuario x</span>
 								</a></li>
-								<li><a href="./index.html"> <span class="icon"><i
+								<li><a href="home"> <span class="icon"><i
 											class="bi bi-box-arrow-right"></i></span> <span class="text">Logout</span>
 								</a></li>
 							</div>
@@ -159,7 +159,7 @@
 				<h5>Entre em contato conosco</h5>
 			</li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter"
-				href="./contatos.html" aria-current="page">Realizar contato</a></li>
+				href="contatos" aria-current="page">Realizar contato</a></li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter">84
 					99999999</a></li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter">@email.com</a>
