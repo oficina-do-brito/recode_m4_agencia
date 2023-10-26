@@ -34,35 +34,6 @@ public class Db {
 		}
 		return conexao;
 	}
-	
-	public static void criarDatabase() {
-		Statement st = null;
-		try {
-			st = conexao.createStatement();
-			st.executeUpdate("USE agencia");
-			st.executeUpdate(DbTable.getDDLCreateUsuario());
-			st.executeUpdate(DbTable.getDDLCreateEndereco());
-			st.executeUpdate(DbTable.getDDLCreateFornecedor());
-			st.executeUpdate(DbTable.getDDLCreateAdministrador());
-			st.executeUpdate(DbTable.getDDLCreateCliente());
-			st.executeUpdate(DbTable.getDDLCreateCarrinhoCompra());
-			st.executeUpdate(DbTable.getDDLCreateHospedagem());
-			st.executeUpdate(DbTable.getDDLCreatePassagem());
-			st.executeUpdate(DbTable.getDDLCreatePacoteViagem());
-			st.executeUpdate(DbTable.getDDLCreateOrigemDestino());
-			st.executeUpdate(DbTable.getDDLCreateRevisa());
-
-			st.executeUpdate(DbTable.getDDLSetUsuarioFkEndereco());
-			st.executeUpdate(DbTable.getDDLSetHospedagemFkOrigemDestino());
-			st.executeUpdate(DbTable.getDDLSetPassagemFkPacoteViagem());
-			st.executeUpdate(DbTable.getDDLSetPacoteViagemFkOrigemDestino());
-
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			closeStatement(st);
-		}
-	}
 
 	public static void closeConnection(Connection c) {
 		if (c != null) {

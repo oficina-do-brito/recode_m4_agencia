@@ -1,13 +1,10 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
-import model.DAO.PacoteViagemDAO;
-import model.interfaces.ICrud;
-
-public class PacoteViagem implements ICrud {
+public class PacoteViagem {
 	private Integer id;
 	private String titulo;
 	private Integer valorDesconto;
@@ -16,54 +13,8 @@ public class PacoteViagem implements ICrud {
 	private String status;
 	private String meioTransporte;
 	private String imagem;
-	private Date prazoCancelamento;
-	private Date dataViagem;
-	private Integer idOrigemDestino;
-	private Integer idHospedagem;
-	private Integer idCarrinhoCompra;
-
-	private ArrayList<Passagem> passagens = new ArrayList<Passagem>();
-	private Hospedagem hospedadgem = new Hospedagem();
-	private OrigemDestino origem = new OrigemDestino();
-	private OrigemDestino destino = new OrigemDestino();
-	private PacoteViagemDAO pacoteViagemDAO = new PacoteViagemDAO();
-
-	public PacoteViagem(String titulo, Integer valorDesconto, double precoTotal, String possuiHospedagem, String status,
-			String meioTransporte, String imagem, Date prazoCancelamento, Date dataViagem, Integer idOrigemDestino,
-			Integer idHospedagem, Integer idCarrinhoCompra) {
-		super();
-		this.titulo = titulo;
-		this.valorDesconto = valorDesconto;
-		this.precoTotal = precoTotal;
-		this.possuiHospedagem = possuiHospedagem;
-		this.status = status;
-		this.meioTransporte = meioTransporte;
-		this.imagem = imagem;
-		this.prazoCancelamento = prazoCancelamento;
-		this.dataViagem = dataViagem;
-		this.idOrigemDestino = idOrigemDestino;
-		this.idHospedagem = idHospedagem;
-		this.idCarrinhoCompra = idCarrinhoCompra;
-	}
-
-	public PacoteViagem(Integer id, String titulo, Integer valorDesconto, double precoTotal, String possuiHospedagem,
-			String status, String meioTransporte, String imagem, Date prazoCancelamento, Date dataViagem,
-			Integer idOrigemDestino, Integer idHospedagem, Integer idCarrinhoCompra) {
-		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.valorDesconto = valorDesconto;
-		this.precoTotal = precoTotal;
-		this.possuiHospedagem = possuiHospedagem;
-		this.status = status;
-		this.meioTransporte = meioTransporte;
-		this.imagem = imagem;
-		this.prazoCancelamento = prazoCancelamento;
-		this.dataViagem = dataViagem;
-		this.idOrigemDestino = idOrigemDestino;
-		this.idHospedagem = idHospedagem;
-		this.idCarrinhoCompra = idCarrinhoCompra;
-	}
+	private int prazoCancelamento;
+	private LocalDate dataViagem;
 
 	public PacoteViagem() {
 		super();
@@ -133,120 +84,21 @@ public class PacoteViagem implements ICrud {
 		this.imagem = imagem;
 	}
 
-	public Date getPrazoCancelamento() {
-		return prazoCancelamento;
-	}
-
-	public void setPrazoCancelamento(Date prazoCancelamento) {
-		this.prazoCancelamento = prazoCancelamento;
-	}
-
-	public Date getDataViagem() {
+	public LocalDate getDataViagem() {
 		return dataViagem;
 	}
 
-	public void setDataViagem(Date dataViagem) {
+	public int getPrazoCancelamento() {
+		return prazoCancelamento;
+	}
+
+	public void setPrazoCancelamento(int prazoCancelamento) {
+		this.prazoCancelamento = prazoCancelamento;
+	}
+
+	public void setDataViagem(LocalDate dataViagem) {
 		this.dataViagem = dataViagem;
 	}
-
-	public Integer getIdOrigemDestino() {
-		return idOrigemDestino;
-	}
-
-	public void setIdOrigemDestino(Integer idOrigemDestino) {
-		this.idOrigemDestino = idOrigemDestino;
-	}
-
-	public Integer getIdHospedagem() {
-		return idHospedagem;
-	}
-
-	public void setIdHospedagem(Integer idHospedagem) {
-		this.idHospedagem = idHospedagem;
-	}
-
-	public Integer getIdCarrinhoCompra() {
-		return idCarrinhoCompra;
-	}
-
-	public void setIdCarrinhoCompra(Integer idCarrinhoCompra) {
-		this.idCarrinhoCompra = idCarrinhoCompra;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PacoteViagem other = (PacoteViagem) obj;
-		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "PacoteViagem [id=" + id + ",titulo=" + titulo + ", valorDesconto=" + valorDesconto + ", precoTotal="
-				+ precoTotal + ", possuiHospedagem=" + possuiHospedagem + ", status=" + status + ", meioTransporte="
-				+ meioTransporte + ", imagem=" + imagem + ", prazoCancelamento=" + prazoCancelamento + ", dataViagem="
-				+ dataViagem + ", idOrigemDestino=" + idOrigemDestino + ", idHospedagem=" + idHospedagem
-				+ ", idCarrinhoCompra=" + idCarrinhoCompra + "]";
-	}
-
-	public void recuperarPacotevIagemById(int id) {
-		PacoteViagem pr = this.pacoteViagemDAO.findById(id);
-		this.id = pr.id;
-		this.titulo = pr.titulo;
-		this.valorDesconto = pr.valorDesconto;
-		this.precoTotal = pr.precoTotal;
-		this.possuiHospedagem = pr.possuiHospedagem;
-		this.status = pr.status;
-		this.meioTransporte = pr.meioTransporte;
-		this.imagem = pr.imagem;
-		this.prazoCancelamento = pr.prazoCancelamento;
-		this.dataViagem = pr.dataViagem;
-		this.idOrigemDestino = pr.idOrigemDestino;
-		this.idHospedagem = pr.idHospedagem;
-		this.idCarrinhoCompra = pr.idCarrinhoCompra;
-	}
-
-	@Override
-	public void create() {
-		this.id = this.pacoteViagemDAO.save(new PacoteViagem(this.titulo, this.valorDesconto, this.precoTotal,
-				this.possuiHospedagem, this.status, this.meioTransporte, this.imagem, this.prazoCancelamento,
-				this.dataViagem, this.idOrigemDestino, this.idHospedagem, this.idCarrinhoCompra));
-	}
-
-	@Override
-	public void delete() {
-		if (this.id != null) {
-			this.pacoteViagemDAO.deleteById(this.id);
-		} else {
-			System.out.println("Esse pacote de viagem \"Não foi encontrado\", logo não houve deleção.");
-		}
-	}
-
-	@Override
-	public void readAll() {
-		ArrayList<PacoteViagem> pacotes = this.pacoteViagemDAO.findAll();
-		for (PacoteViagem p : pacotes) {
-			System.out.println(p.toString());
-		}
-	}
-
-	@Override
-	public void update() {
-		if (this.id != null) {
-			this.pacoteViagemDAO.update(new PacoteViagem(this.titulo, this.valorDesconto, this.precoTotal,
-					this.possuiHospedagem, this.status, this.meioTransporte, this.imagem, this.prazoCancelamento,
-					this.dataViagem, this.idOrigemDestino, this.idHospedagem, this.idCarrinhoCompra));
-		}
-	}
+	
 
 }

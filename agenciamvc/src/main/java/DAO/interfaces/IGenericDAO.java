@@ -1,9 +1,9 @@
-package model.interfaces;
+package DAO.interfaces;
 
 import java.util.ArrayList;
 
 public interface IGenericDAO<T> {
-	Integer save(T obj);
+	void create(T obj);
     void update(T obj);
     void delete(T obj);
     void deleteById(Integer id);

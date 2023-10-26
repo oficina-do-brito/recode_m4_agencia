@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
 	<!-- TODO: navbar stick  -->
 	<nav class="navbar w-100 sticky-md-top navbar-expand-lg">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="home">
+			<a class="navbar-brand" href="/agenciamvc/">
 				<img src="./assets/img/logo.png" alt="logo da agencia" width="50"
 				height="50">
 			</a>
@@ -32,7 +33,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="home">Home</a></li>
+						aria-current="page" href="/agenciamvc/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="destino">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link" href="#promocoes">Promoções</a>

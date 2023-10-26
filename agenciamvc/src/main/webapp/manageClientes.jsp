@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 	<!-- TODO: navbar stick  -->
 	<nav class="navbar w-100 sticky-md-top navbar-expand-lg">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="home"> <img
+			<a class="navbar-brand" href="/agenciamvc/"> <img
 				src="./assets/img/logo.png" alt="logo da agencia" width="50"
 				height="50">
 			</a>
@@ -31,11 +32,11 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="home">Home</a></li>
+						href="/agenciamvc/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="destino">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="home#promocoes">Promoções</a></li>
+						href="/agenciamvc/#promocoes">Promoções</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="contatos">Contatos</a></li>
 				</ul>
@@ -56,7 +57,7 @@
 						</ul>
 
 						<ul>
-							<li><a href="#"> <span class="icon"><i
+							<li><a href="/agenciamvc/"> <span class="icon"><i
 										class="bi bi-house"></i></span> <span class="text">Home</span>
 							</a></li>
 							<li><a href="#"> <span class="icon"><i
@@ -84,7 +85,7 @@
 											</div>
 									</span> <span class="text">Usuario x</span>
 								</a></li>
-								<li><a href="home"> <span class="icon"><i
+								<li><a href="/agenciamvc/"> <span class="icon"><i
 											class="bi bi-box-arrow-right"></i></span> <span class="text">Logout</span>
 								</a></li>
 							</div>
