@@ -24,6 +24,13 @@ public class Db {
 	}
 
 	public static Connection getConnection() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Driver Encontrado!");
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
+	
 		if (conexao == null) {
 			try {
 				Properties props = loadProps();
@@ -72,5 +79,4 @@ public class Db {
 			}
 		}
 	}
-
 }

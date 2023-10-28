@@ -2,25 +2,26 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <title>Agencia de Viagens</title>
 <link rel="stylesheet" href="./assets/css/reset.css">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-<script defer
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/card.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </head>
+
 <body>
 	<!-- TODO: navbar stick  -->
 	<nav class="navbar w-100 sticky-md-top navbar-expand-lg">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/agenciamvc/">
+			<a class="navbar-brand" href="HomeServlet">
 				<img src="./assets/img/logo.png" alt="logo da agencia" width="50"
 				height="50">
 			</a>
@@ -33,13 +34,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/agenciamvc/">Home</a></li>
+						aria-current="page" href="HomeServlet">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="destino">Destinos</a></li>
+						href="DestinoServlet">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link" href="#promocoes">Promoções</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="contatos">Contatos</a></li>
+						href="ContatoServlet">Contatos</a></li>
 				</ul>
 				<button type="button"
 					class="btn btn-outline-primary rounded-pill mx-md-5"
@@ -55,8 +56,9 @@
 							placeholder="Password" name="password"> <label
 							for="floatingPassword">Password</label>
 					</div>
+					<a class=".text-primary" href="AdminServlet">Cadastre-se</a> 
 					<div class="container d-flex">
-						<a class="nav-link" href="ManageClients">
+						<a class="nav-link" href="ManageServlet">
 							<button type="submit"
 								class="btn btn-outline-primary rounded-pill mx-md-5">Entrar</button>
 						</a> <a class="nav-link">
@@ -762,7 +764,7 @@
 				<h5>Entre em contato conosco</h5>
 			</li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter"
-				href="contatos" aria-current="page">Realizar contato</a></li>
+				href="ContatoServlet" aria-current="page">Realizar contato</a></li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter">84
 					99999999</a></li>
 			<li class="nav-item"><a class="nav-link text-light fw-lighter">@email.com</a>
@@ -771,4 +773,5 @@
 	</footer>
 	<script defer src="./assets/js/index.js"></script>
 </body>
+
 </html>
