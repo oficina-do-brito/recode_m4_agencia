@@ -17,6 +17,12 @@ public class ManageServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+//		LocalDate dataAtual = LocalDate.now();
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//		String data = request.getParameter("dataLogin");
+//		admin.setDataLogin(LocalDate.parse(data, formatter));
+//
+//		admin.setDataLogin(dataAtual);
 		request.getRequestDispatcher("manage.jsp").forward(request,response);
 	}
 

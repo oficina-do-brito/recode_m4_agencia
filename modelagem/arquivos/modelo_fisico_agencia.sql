@@ -1,9 +1,9 @@
-CREATE DATABASE agencia;
+CREATE DATABASE IF NOT EXISTS agencia;
 USE agencia;
 
 CREATE TABLE IF NOT EXISTS Administrador (
 idAdministrador INTEGER AUTO_INCREMENT PRIMARY KEY,
-numeroViagensRevisadas INTEGER,
+nvRevisadas INTEGER,
 password VARCHAR(50),
 email VARCHAR(150),
 imagem VARCHAR(150),

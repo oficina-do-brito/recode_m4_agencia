@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -19,7 +20,7 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 	@Override
 	public void create(Administrador obj) {
 		try {
-			this.sql = "INSERT INTO Administrador (nome,email,password,telefone,imagem,dataLogin,tipoUsuario,numeroViagemRevisadas) VALUES (?,?,?,?,?,?,?,?)";
+			this.sql = "INSERT INTO Administrador (nome,email,password,telefone,imagem,dataLogin,tipoUsuario,nvRevisadas) VALUES (?,?,?,?,?,?,?,?)";
 			super.c1 = Db.getConnection();
 			super.pst = super.c1.prepareStatement(this.sql);
 			
@@ -30,7 +31,7 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 			super.pst.setString(5, obj.getImagem());
 			super.pst.setDate(6, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
 			super.pst.setInt(7, obj.getTipoUsuario());
-			super.pst.setInt(8, obj.getNumeroViagemRevisadas());
+			super.pst.setInt(8, obj.getNvRevisadas());
 
 			super.pst.executeUpdate();
 		} catch (SQLException e) {
@@ -45,10 +46,10 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 	@Override
 	public void update(Administrador obj) {
 		try {
-			this.sql = "UPDATE Administrador SET  Administrador.nViagensRevisadas=? WHERE Administrador.idAdministrador = ?";
+			this.sql = "UPDATE Administrador SET  Administrador.nvRevisadas=? WHERE Administrador.idAdministrador = ?";
 			super.c1 = Db.getConnection();
 			super.pst = c1.prepareStatement(this.sql);
-			super.pst.setInt(1, obj.getNumeroViagemRevisadas());
+			super.pst.setInt(1, obj.getNvRevisadas());
 			super.pst.setInt(2, obj.getId());
 
 			super.pst.executeUpdate();
@@ -96,7 +97,7 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 	@Override
 	public Administrador findById(Integer id) {
 		try {
-			this.sql = "SELECT * FROM Usuario WHERE Administrador.idAdministrador=?";
+			this.sql = "SELECT * FROM Administrador WHERE Administrador.idAdministrador=?";
 			Administrador a = new Administrador();
 			super.c1 = Db.getConnection();
 			super.pst = super.c1.prepareStatement(this.sql);
@@ -104,7 +105,7 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 			super.rs = super.pst.executeQuery();
 			while (super.rs.next()) {
 				a.setId(super.rs.getInt("idAdministrador"));
-				a.setNumeroViagemRevisadas(super.rs.getInt("nViagensRevisadas"));
+				a.setNvRevisadas(super.rs.getInt("nvRevisadas"));
 
 				a.setNome(super.rs.getString("nome"));
 				a.setEmail(super.rs.getString("email"));
@@ -135,14 +136,14 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 
 			while (super.rs.next()) {
 				Administrador a = new Administrador();
-				a.setId(super.rs.getInt("idAdmnistrador"));
+				a.setId(super.rs.getInt("idAdministrador"));
 				a.setNome(super.rs.getString("nome"));
 				a.setEmail(super.rs.getString("email"));
 				a.setPassword(super.rs.getString("password"));
 				a.setTelefone(super.rs.getString("telefone"));
 				a.setImagem(super.rs.getString("imagem"));
 				a.setTipoUsuario(super.rs.getInt("tipoUsuario"));
-				a.setNumeroViagemRevisadas(super.rs.getInt("nViagensRevisadas"));
+				a.setNvRevisadas(super.rs.getInt("nvRevisadas"));
 				Administradors.add(a);
 			}
 		} catch (SQLException e) {
@@ -152,6 +153,32 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 			Db.closeConnection(super.c1);
 		}
 		return Administradors;
+	}
+	public Administrador findByEmailAndPassoword(String email, String password) {
+		try {
+			Administrador a = new Administrador();
+			super.c1 = Db.getConnection();
+			super.pst = super.c1.prepareStatement("SELECT * FROM Administrador WHERE Administrador.email=? AND Administrador.password=?");
+			super.pst.setString(1, email);
+			super.pst.setString(2, password);
+			super.rs = super.pst.executeQuery();
+			while(super.rs.next()) {
+				a.setId(super.rs.getInt("idAdministrador"));
+				a.setNome(super.rs.getString("nome"));
+				a.setEmail(super.rs.getString("email"));
+				a.setPassword(super.rs.getString("password"));
+				a.setTelefone(super.rs.getString("telefone"));
+				a.setImagem(super.rs.getString("imagem"));
+				a.setTipoUsuario(super.rs.getInt("tipoUsuario"));
+				a.setNvRevisadas(super.rs.getInt("nvRevisadas"));
+			}
+			return a;
+		} catch (SQLException e) {
+			throw new DbIntegrityException(e.getMessage());
+		} finally {
+			Db.closeStatement(super.st);
+			Db.closeResultSet(super.rs);
+		}
 	}
 
 }

@@ -42,33 +42,31 @@
 					<li class="nav-item"><a class="nav-link"
 						href="ContatoServlet">Contatos</a></li>
 				</ul>
-				<button type="button"
-					class="btn btn-outline-primary rounded-pill mx-md-5"
-					onclick="clickFormVisible()">Login</button>
-				<div class="container bg-light form-flutuante">
-					<div class="form-floating mb-3">
-						<input type="email" class="form-control" id="floatingInput"
-							placeholder="name@example.com" name="email"> <label
-							for="floatingInput">Email address</label>
-					</div>
-					<div class="form-floating ">
-						<input type="password" class="form-control" id="floatingPassword"
-							placeholder="Password" name="password"> <label
-							for="floatingPassword">Password</label>
-					</div>
-					<a class=".text-primary" href="AdminServlet">Cadastre-se</a> 
-					<div class="container d-flex">
-						<a class="nav-link" href="ManageServlet">
-							<button type="submit"
-								class="btn btn-outline-primary rounded-pill mx-md-5">Entrar</button>
-						</a> <a class="nav-link">
-							<button type="button"
-								class="btn btn-outline-danger rounded-pill mx-md-5"
-								onclick="clickFormNotVisible()">Fechar</button>
-						</a>
-					</div>
+				<button type="button" class="btn btn-outline-primary rounded-pill mx-md-5" onclick="clickFormVisible()">Login</button>
+					<form class="container bg-light form-flutuante" action="LoginServlet" method="POST">
 
-				</div>
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+							<label for="floatingInput">Email address</label>
+						</div>
+
+						<div class="form-floating ">
+							<input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+							<label for="floatingPassword">Password</label>
+						</div>
+
+						<a class=".text-primary" href="AdminServlet">Cadastre-se</a> 
+
+						<div class="container d-flex">
+							<a class="nav-link" href="LoginServlet">
+								<button type="submit" class="btn btn-outline-primary rounded-pill mx-md-5">Entrar</button>
+							</a>
+							<a class="nav-link">
+								<button type="button" class="btn btn-outline-danger rounded-pill mx-md-5" onclick="clickFormNotVisible()">Fechar</button>
+							</a>
+						</div>
+					</form>
+					
 			</div>
 		</div>
 	</nav>
