@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.AdministradorDAO;
-import model.Administrador;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {

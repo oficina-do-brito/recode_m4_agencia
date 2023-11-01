@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -8,8 +8,10 @@
 <meta charset="UTF-8">
 <title>Manage-clientes</title>
 <link rel="stylesheet" href="./assets/css/reset.css">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<script defer
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/m_clientes.css">
 <link rel="stylesheet"
@@ -34,12 +36,10 @@
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
 						href="HomeServlet">Home</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="DestinoServlet">Destinos</a></li>
+					<li class="nav-item"><a class="nav-link" href="DestinoServlet">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="DestinoServlet#promocoes">Promoções</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="ContatoServlet">Contatos</a></li>
+					<li class="nav-item"><a class="nav-link" href="ContatoServlet">Contatos</a></li>
 				</ul>
 			</div>
 		</div>
@@ -65,7 +65,7 @@
 										class="bi bi-person"></i></span> <span class="text">Profile</span>
 							</a></li>
 							<li><a href="ManagePacotesServlets"> <span class="icon"><i
-								class="bi bi-box-seam"></i></span> <span class="text">Pacotes</span>
+										class="bi bi-box-seam"></i></span> <span class="text">Pacotes</span>
 							</a></li>
 							<li><a href="#"> <span class="icon"><i
 										class="bi bi-chat-dots"></i></span> <span class="text">Inbox</span>
@@ -99,7 +99,7 @@
 				</div>
 				<div class="col-sm-12 col-md-9 col-10 p-0 h-auto">
 					<div class="d-flex flex-column p-0">
-						<h2 class="h2-destaque text-center">Clientes</h2>
+						<h2 class="h2-destaque text-center">Pacotes cadastrados</h2>
 						<select class="form-select align-self-center w-50 mb-5"
 							aria-label="Default select example">
 							<option selected>Selecione opção de visualização</option>
@@ -107,17 +107,37 @@
 							<option value="2">Top Internacional</option>
 							<option value="3">Top nacional</option>
 						</select>
-						<div
-							class="container-fluid h-100 my-2 p-0 d-flex align-content-start justify-content-center gap-2 flex-wrap"
+						<div class="container-fluid h-100 my-2 p-0 d-flex align-content-start justify-content-center gap-2 flex-wrap"
 							id="clientes">
 
-							<div class="spinner-border visivel" role="status" id="loading">
-								<span class="visually-hidden">Loading...</span>
+							<div class="card" style="width: 18rem;">
+								<h5 class="card-title p-3 m-auto">Cadastrar Novo</h5>
+								<a href="CreatePacoteServlet" class="m-auto p-3"><i
+									class="bi bi-plus-lg h1"></i></a>
 							</div>
+						</div>
+
+						<div class="d-flex flex-row flex-wrap my-2">
+							<!-- TODO: editar e excluir -->
+							<p:forEach items="${pacotes}" var="pacote">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="..." alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title">${pacote.titulo}</h5>
+										<p class="card-text">Some quick example text to build on
+											the card title and make up the bulk of the card's content.</p>
+										<a href="UpdatePacoteServlet?id=${pacote.id}" class="btn btn-primary">Editar</a>
+										<a href="DeletePacoteServlet?id=${pacote.id}" class="btn btn-danger">Excluir</a>
+									</div>
+								</div>
+							</p:forEach>
 						</div>
 
 					</div>
 				</div>
+
+
+
 			</div>
 		</div>
 	</main>

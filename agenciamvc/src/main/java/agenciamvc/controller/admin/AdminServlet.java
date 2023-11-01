@@ -1,4 +1,4 @@
-package agenciamvc.controller;
+package agenciamvc.controller.admin;
 
 import java.io.IOException;
 

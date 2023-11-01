@@ -1,7 +1,6 @@
 package DAO;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -39,7 +38,6 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 		} finally {
 			Db.closePreparedStatement(super.pst);
 			Db.closeResultSet(super.rs);
-			Db.closeConnection(super.c1);
 		}
 	}
 
@@ -57,7 +55,6 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 			e.printStackTrace();
 		} finally {
 			Db.closePreparedStatement(super.pst);
-			Db.closeConnection(super.c1);
 		}
 	}
 
@@ -74,7 +71,6 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 			throw new DbIntegrityException(e.getMessage());
 		} finally {
 			Db.closePreparedStatement(super.pst);
-			Db.closeConnection(super.c1);
 		}
 	}
 
@@ -90,7 +86,6 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 			throw new DbIntegrityException(e.getMessage());
 		} finally {
 			Db.closeStatement(super.pst);
-			Db.closeConnection(super.c1);
 		}
 	}
 
@@ -120,7 +115,6 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 		} finally {
 			Db.closePreparedStatement(super.pst);
 			Db.closeResultSet(super.rs);
-			Db.closeConnection(super.c1);
 		}
 		
 	}
@@ -150,7 +144,6 @@ public class AdministradorDAO extends PadraoDao implements IGenericDAO<Administr
 			throw new DbIntegrityException(e.getMessage());
 		} finally {
 			Db.closeStatement(super.st);
-			Db.closeConnection(super.c1);
 		}
 		return Administradors;
 	}

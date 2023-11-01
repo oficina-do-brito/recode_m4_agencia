@@ -1,8 +1,9 @@
 package DAO;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import DAO.interfaces.IGenericDAO;
 import db.Db;
@@ -30,7 +31,8 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 			super.pst.setString(6, obj.getMeioTransporte());
 			super.pst.setString(7, obj.getImagem());
 			super.pst.setInt(8, obj.getPrazoCancelamento());
-			super.pst.setDate(9, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+			// Converte Localdate para sqldate -> Date.valueOf()
+			super.pst.setDate(9, Date.valueOf(obj.getDataViagem()));
 
 			super.pst.executeUpdate();
 
@@ -39,16 +41,16 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 		} finally {
 			Db.closePreparedStatement(super.pst);
 			Db.closeResultSet(super.rs);
-			Db.closeConnection(super.c1);
 		}
 	}
 
 	@Override
 	public void update(PacoteViagem obj) {
+		this.sql = "UPDATE PacoteViagem SET  PacoteViagem.titulo=?, PacoteViagem.valorDesconto=?,\r\n"
+				+ "PacoteViagem.possuiHospedagem=?, PacoteViagem.status=?,PacoteViagem.meioTransporte=?,\r\n"
+				+ "PacoteViagem.imagem=?, PacoteViagem.prazoCancelamento=?, dataViagem=? WHERE PacoteViagem.idPacote = ?";
 		try {
-			this.sql = "UPDATE PacoteViagem SET  PacoteViagem.titulo=?, PacoteViagem.valorDesconto=?, PacoteViagem.possuiHospedagem=?, PacoteViagem.status=? PacoteViagem.meioTransporte=? "
-					+ "PacoteViagem.imagem=? PacoteViagem.prazoCancelamento"
-					+ "fkOrigem=? WHERE PacoteViagem.idPacote = ?";
+
 			super.c1 = Db.getConnection();
 			super.pst = c1.prepareStatement(this.sql);
 			super.pst.setString(1, obj.getTitulo());
@@ -58,12 +60,13 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 			super.pst.setString(5, obj.getMeioTransporte());
 			super.pst.setString(6, obj.getImagem());
 			super.pst.setInt(7, obj.getPrazoCancelamento());
+			super.pst.setDate(8, Date.valueOf(obj.getDataViagem()));
+			super.pst.setInt(9, obj.getId());
 			super.pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			Db.closePreparedStatement(super.pst);
-			Db.closeConnection(super.c1);
 		}
 	}
 
@@ -79,7 +82,6 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 			throw new DbIntegrityException(e.getMessage());
 		} finally {
 			Db.closePreparedStatement(super.pst);
-			Db.closeConnection(super.c1);
 		}
 	}
 
@@ -95,24 +97,19 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 			throw new DbIntegrityException(e.getMessage());
 		} finally {
 			Db.closeStatement(super.pst);
-			Db.closeConnection(super.c1);
 		}
 	}
-	
-//	To convert from LocalDate to java.sql.Date, we can simply use the valueOf() method available in java.sql.Date. Likewise, to convert the current date, we can use:
-//		Date date = Date.valueOf(LocalDate.now());
-//		Copy  Or, any other specific date: //		Date date = Date.valueOf(LocalDate.of(2019, 01, 10));
-		
+
 	@Override
 	public PacoteViagem findById(Integer id) {
+		this.sql = "SELECT * FROM PacoteViagem WHERE PacoteViagem.idPacote =?";
 		try {
-			this.sql = "SELECT * FROM PacoteViagem WHERE PacoteViagem.idPacote =?";
-			PacoteViagem p = null;
+			PacoteViagem p = new PacoteViagem();
 			super.c1 = Db.getConnection();
 			super.pst = super.c1.prepareStatement(this.sql);
+			super.pst.setInt(1, id);
 			super.rs = super.pst.executeQuery();
 			while (super.rs.next()) {
-				p = new PacoteViagem();
 				p.setId(super.rs.getInt("idPacote"));
 				p.setTitulo(super.rs.getString("titulo"));
 				p.setValorDesconto(super.rs.getInt("valorDesconto"));
@@ -120,10 +117,10 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 				p.setPossuiHospedagem(super.rs.getString("possuiHospedagem"));
 				p.setStatus(super.rs.getString("status"));
 				p.setMeioTransporte(super.rs.getString("meioTransporte"));
-				p.setImagem( super.rs.getString("imagem"));
+				p.setImagem(super.rs.getString("imagem"));
 				p.setPrazoCancelamento(super.rs.getInt("prazoCancelamento"));
-				//pegar data sql e converter devoltapra localdate - super ...
-				p.setDataViagem(new java.sql.Date(super.rs.getDate("dataViagem").getTime()).toLocalDate());
+				// pegar data sql e converter devoltapra localdate
+				p.setDataViagem(super.rs.getDate("dataViagem").toLocalDate());
 			}
 			return p;
 		} catch (SQLException e) {
@@ -131,7 +128,6 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 		} finally {
 			Db.closePreparedStatement(super.pst);
 			Db.closeResultSet(super.rs);
-			Db.closeConnection(super.c1);
 		}
 	}
 
@@ -152,7 +148,7 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 				p.setPossuiHospedagem(super.rs.getString("possuiHospedagem"));
 				p.setStatus(super.rs.getString("status"));
 				p.setMeioTransporte(super.rs.getString("meioTransporte"));
-				p.setImagem( super.rs.getString("imagem"));
+				p.setImagem(super.rs.getString("imagem"));
 				p.setPrazoCancelamento(super.rs.getInt("prazoCancelamento"));
 				pacoteViagems.add(p);
 			}
@@ -162,7 +158,6 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 		} finally {
 			Db.closePreparedStatement(super.pst);
 			Db.closeResultSet(super.rs);
-			Db.closeConnection(super.c1);
 		}
 
 	}
