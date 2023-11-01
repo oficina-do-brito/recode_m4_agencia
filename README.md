@@ -40,11 +40,6 @@
 
 <img src="https://github.com/oficina-do-brito/recode_m4_agencia/blob/main/modelagem/logico.jpg" />
 
-## Diagrama_de_Classe
-
-<img src="https://github.com/oficina-do-brito/recode_m4_agencia/blob/main/modelagem/diagrama_class.png" />
-
-
 ## Tecnologias_usadas
 
 Frontend:
@@ -66,31 +61,22 @@ Combinação:
 Este é um exemplo de como você pode configurar o projeto para que possa executar. Para obter uma cópia local instalada e funcionando, siga estas etapas simples de exemplo.
 
 ### Prerequisitos
+- Baixar o servidor [apache tomCat 9](https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.zip)
+- Baixar o connector java com Mysql em [MySQL Connector](https://dev.mysql.com/downloads/connector/j/)
+- Baixar [jstl 1.2](https://repo1.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar)
+- Baixar [java servlet ](http://www.java2s.com/Code/JarDownload/javax.servlet/javax.servlet-3.0.jar.zip)
 
-- Baixar o connector java com Mysql em [Connector](https://dev.mysql.com/downloads/connector/j/)
-- Anexar ele como uma biblioteca externa, do projeto. Clicando com lado direito do mouse > build Path > Configure Build Path> Java Build Path> Libraries> Module path> Add Libraries>User Library> new > dar nome a biblioteca, depois importa jar do mysql nela e por fim seleciona ela e dar aply e close.
+### Rodando o projeto
 
-- Se quizer rodar o projeto com banco ja de databse criada, é a conselhavel ter o docker e docker-compose na sua maquina
-- Configurar um servidor Tomcat 9.0 e setar o projeto pra ele servir.
+- Anexar o jstl,servelet e connector como uma recursos dependencia do projeto. Clicando com lado direito do mouse encima do projeto e em properties> build Path >  Libraries> classpath path> adicione eles como external jars, aply e close.
+- Coloque na pasta de frontend doprojeto dentro de web-inf > lib os jars de jstl e do mysql connector
 
-### Rodando o projeto backend
+- Se quizer rodar o projeto com banco ja de databse criada, é a conselhavel ter o docker e docker-compose na sua maquina,
+- Ainda não contem o sql das tabelas que estão dentro de modelagem, execute o sql de criação ...
+- Configurar um servidor Tomcat 9.0 e seo projeto pra ele servir e play.
 
-Sem docker e docker-compose na maquina :
-
-- Crie a database agencia no seu banco e certifique-se de estar usando usuario root e senha root.
-- Depois vai no eclipse, verifique de estar com o mysql conect instalado no projeto, como biblioteca externa.
-- E run.
-
-Com docker e docker-compose na maquina, abra seu terminal git e:
-
-- Vai no eclipse, verifique de estar com o mysql conect instalado no projeto, como biblioteca externa.
-```bash
-# Clone o repositorio e inicie um bd
-  git clone https://github.com/oficina-do-brito/recode_m4_agencia.git && cd recode_m4_agencia/backend/ && docker-compose up
-```
-- E run.
 
 
 ### Como visualizar projeto web
 
-- Entrar no [Endereço](http://localhost:8080/)
+- Entrar no [Endereço](http://localhost:8080/agenciamvc/)
