@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="./assets/css/card.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -131,47 +133,47 @@
 		<section class="w-100 h-auto s1">
 
 				<!-- TODO: Form -->
-				<form class="w-75 mx-auto h-auto" action="CreatePacoteServlet" method="POST">
+				<form class="w-75 mx-auto h-auto" action="CreatePacoteServlet" enctype="multipart/form-data" method="POST">
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">titulo</span>
 						<input type="text" class="form-control" placeholder="Qualquer titulo referente a viagem" aria-label="titulo" aria-describedby="basic-addon1" name="titulo">
 					</div>
 
 					<div class="input-group mb-3">
-						<span class="input-group-text" id="basic-addon1">imagem</span>
-						<input type="text" class="form-control" placeholder="imagem" aria-label="imagem" aria-describedby="basic-addon1" name="imagem">
-					</div>
-
-					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">status</span>
-						<input type="text" class="form-control" placeholder="status" aria-label="status" aria-describedby="basic-addon1" name="status">
+						<input type="text" class="form-control" placeholder="status" aria-label="status" aria-describedby="basic-addon1" name="status" />
 					</div>
 
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">valor desconto</span>
-						<input type="text" class="form-control" placeholder="valor numerico, sera convertido em porcentagem" aria-label="valorDesconto" aria-describedby="basic-addon1" name="valorDesconto">
+						<input type="text" class="form-control" placeholder="valor numerico, sera convertido em porcentagem" aria-label="valorDesconto" aria-describedby="basic-addon1" name="valorDesconto" />
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">preco total</span>
-						<input type="number" class="form-control" placeholder="preco total bruto do pacote" aria-label="precoTotal" aria-describedby="basic-addon1" name="precoTotal" max="10000">
+						<input type="number" class="form-control" placeholder="preco total bruto do pacote" aria-label="precoTotal" aria-describedby="basic-addon1" name="precoTotal" max="10000" />
 					</div>
 
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">possui hospedagem</span>
-						<input type="text" class="form-control" placeholder="possui hospedagem? sim ou não" aria-label="possuiHospedagem" aria-describedby="basic-addon1" name="possuiHospedagem">
+						<input type="text" class="form-control" placeholder="possui hospedagem? sim ou não" aria-label="possuiHospedagem" aria-describedby="basic-addon1" name="possuiHospedagem" />
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">meio transporte</span>
-						<input type="text" class="form-control" placeholder="meio de transporte" aria-label="meioTransporte" aria-describedby="basic-addon1" name="meioTransporte">
+						<input type="text" class="form-control" placeholder="meio de transporte" aria-label="meioTransporte" aria-describedby="basic-addon1" name="meioTransporte" />
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">prazo cancelamento</span>
-						<input type="text" class="form-control" placeholder="prazo para cancelamento" aria-label="prazoCancelamento" aria-describedby="basic-addon1" name="prazoCancelamento">
+						<input type="text" class="form-control" placeholder="prazo para cancelamento" aria-label="prazoCancelamento" aria-describedby="basic-addon1" name="prazoCancelamento" />
 					</div>
 
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">data viagem</span>
-						<input type="date" class="form-control" placeholder="data da viagem" aria-label="dataViagem" aria-describedby="basic-addon1" name="dataViagem">
+						<input type="date" class="form-control" placeholder="data da viagem" aria-label="dataViagem" aria-describedby="basic-addon1" name="dataViagem" />
+					</div>
+					
+					<div class="form-group mb-3">
+						<span class="input-group-text" id="basic-addon1">Imagem do Pacote</span>
+						<input type="file" class="form-control"  multiple="multiple" aria-describedby="basic-addon1" name="imagemPacote" />
 					</div>
 
 					<div class="form-group mb-3"></div>
@@ -179,7 +181,8 @@
 						<button type="submit" class="btn btn-primary mb-3">Enviar</button>
 					</div>
 				</form>
-				  <!-- TODO: Form -->
+				
+		<!-- TODO: Form -->
 		</section>
 
 	</main>

@@ -22,7 +22,9 @@
 </p>
 
 ## Explicações
-
+Esse projeto usa de strategia para salvamento de imagem via "path e nome da imagem" salvando no banco apenas o nome da imagem mesmo então
+caso queira ver a pasta onde são realizadas os uploads de imagens da sua aplicação geralmente elas se encontram na sua pasta de deploy do tomcat: 
+C:\Users\${USER}\OneDrive\Documentos\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\agenciamvc\assets\img
 
 ## Versões
 
@@ -64,7 +66,7 @@ Este é um exemplo de como você pode configurar o projeto para que possa execut
 - Baixar o servidor [apache tomCat 9](https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.zip)
 - Baixar o connector java com Mysql em [MySQL Connector](https://dev.mysql.com/downloads/connector/j/)
 - Baixar [jstl 1.2](https://repo1.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar)
-- Baixar [java servlet ](http://www.java2s.com/Code/JarDownload/javax.servlet/javax.servlet-3.0.jar.zip)
+- Baixar [java servlet 3.1 ](https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar)
 
 ### Rodando o projeto
 
