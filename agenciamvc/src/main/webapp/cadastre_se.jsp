@@ -127,7 +127,7 @@
 	</header>
 	<!-- TODO: Main  -->
 	<main class="d-flex flex-column">
-		<h1 class="h1-centralizado fs-1 fw-lighter mt-sm-5">Realizar cadastro</h1>
+		<h1 class="h1-centralizado fs-1 fw-lighter mt-sm-2">Realizar cadastro</h1>
 		<section class="w-100 h-auto s1">
 
 				<!-- TODO: Form -->

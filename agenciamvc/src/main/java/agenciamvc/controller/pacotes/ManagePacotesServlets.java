@@ -26,8 +26,6 @@ public class ManagePacotesServlets extends HttpServlet {
 		ArrayList<PacoteViagem> pacotes= pDAO.findAll();
 		
 		request.setAttribute("pacotes", pacotes);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("manage_pacotes.jsp");
-		rd.forward(request, response);
+		request.getRequestDispatcher("manage_pacotes.jsp").forward(request, response);
 	}
 }

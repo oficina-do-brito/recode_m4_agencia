@@ -1,4 +1,4 @@
-package agenciamvc.controller;
+package agenciamvc.controller.clientes;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

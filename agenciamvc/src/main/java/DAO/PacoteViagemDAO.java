@@ -150,6 +150,7 @@ public class PacoteViagemDAO extends PadraoDao implements IGenericDAO<PacoteViag
 				p.setMeioTransporte(super.rs.getString("meioTransporte"));
 				p.setImagem(super.rs.getString("imagem"));
 				p.setPrazoCancelamento(super.rs.getInt("prazoCancelamento"));
+				p.setDataViagem(super.rs.getDate("dataViagem").toLocalDate());
 				pacoteViagems.add(p);
 			}
 			return pacoteViagems;

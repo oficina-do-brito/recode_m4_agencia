@@ -83,18 +83,21 @@
 
 						<ul>
 							<div class="bottom">
-								<li id="nohover"><a href="#"> <span class="icon">
-											<div class="avatar">
-												<img src="https://picsum.photos/200" alt="">
-											</div>
-									</span> <span class="text">Usuario x</span>
-								</a></li>
-								<li><a href="HomeServlet"> <span class="icon"><i
-											class="bi bi-box-arrow-right"></i></span> <span class="text">Logout</span>
-								</a></li>
+								<li id="nohover">
+									<a href="#">
+										<span class="icon">
+										<div class="avatar"><img src="https://picsum.photos/200" alt="" /></div>
+										</span><span class="text">Usuario x</span>
+									</a>
+								</li>
+								<li>
+									<a href="HomeServlet">
+										<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+									    <span class="text">Logout</span>
+									</a>
+								</li>
 							</div>
 						</ul>
-
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-9 col-10 p-0 h-auto">
@@ -110,10 +113,12 @@
 						<div class="container-fluid h-100 my-2 p-0 d-flex align-content-start justify-content-center gap-2 flex-wrap"
 							id="clientes">
 
-							<div class="card" style="width: 18rem;">
-								<h5 class="card-title p-3 m-auto">Cadastrar Novo</h5>
-								<a href="CreatePacoteServlet" class="m-auto p-3"><i
-									class="bi bi-plus-lg h1"></i></a>
+							<div class="card greencard" style="width: 15rem;">
+								<a href="CreatePacoteServlet" class="card-title text-center p-2 text-success">
+								<span class="m-auto p-2 text-primary"><i class="bi bi-plus-lg h5"></i></span>
+								<span class="h5 text-primary">Cadastrar Novo</span>
+								<span class="m-auto p-2 text-primary"><i class="bi bi-plus-lg h5"></i></span>
+								</a>
 							</div>
 						</div>
 
@@ -123,9 +128,13 @@
 								<div class="card" style="width: 18rem;">
 									<img class="card-img-top" src="/agenciamvc/assets/img/${pacote.imagem}" width="150" height="200"  alt="Card image cap">
 									<div class="card-body">
-										<h5 class="card-title">${pacote.titulo}</h5>
-										<p class="card-text">Some quick example text to build on
-											the card title and make up the bulk of the card's content.</p>
+										<h5 class="card-title text-center">${pacote.titulo}</h5>
+										<p class="card-text">Meio de Transporte: ${pacote.meioTransporte}</p>
+										<p class="card-text">Possui Hospedadgem: ${pacote.possuiHospedagem}</p>
+										<p class="card-text">Valor desconto: ${pacote.valorDesconto} %</p>
+										<p class="card-text">Preço bruto: ${pacote.precoTotal}</p>
+										<p class="card-text">Prazo de cancelamento: ${pacote.prazoCancelamento}</p>
+										<p class="card-text">Data marcada: ${pacote.dataViagem}</p>
 										<a href="UpdatePacoteServlet?id=${pacote.id}" class="btn btn-primary">Editar</a>
 										<a href="DeletePacoteServlet?id=${pacote.id}" class="btn btn-danger">Excluir</a>
 									</div>

@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
 		a.findByEmailAndPassoword(emailUser, passwordUser);
 		
 		if(a.findByEmailAndPassoword(emailUser, passwordUser).getEmail()!=null) {
-			response.sendRedirect("ManageServlet");
+			response.sendRedirect("ManagePacotesServlets");
 		}else {
 			response.sendRedirect("HomeServlet");
 		}

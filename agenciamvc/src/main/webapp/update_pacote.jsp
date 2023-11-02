@@ -40,34 +40,12 @@
 					<li class="nav-item"><a class="nav-link" href="#promocoes">Promoções</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="ContatoServlet">Contatos</a></li>
+						href="ContatoServlet">Contatos</a>
+					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="ManagePacotesServlets">Manage</a>
+					</li>
 				</ul>
-				<button type="button"
-					class="btn btn-outline-primary rounded-pill mx-md-5"
-					onclick="clickFormVisible()">Login</button>
-					<form class="container bg-light form-flutuante" action="LoginServlet" method="POST">
-
-						<div class="form-floating mb-3">
-							<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
-							<label for="floatingInput">Email address</label>
-						</div>
-
-						<div class="form-floating ">
-							<input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-							<label for="floatingPassword">Password</label>
-						</div>
-
-						<a class=".text-primary" href="AdminServlet">Cadastre-se</a> 
-
-						<div class="container d-flex">
-							<a class="nav-link" href="LoginServlet">
-								<button type="submit" class="btn btn-outline-primary rounded-pill mx-md-5">Entrar</button>
-							</a>
-							<a class="nav-link">
-								<button type="button" class="btn btn-outline-danger rounded-pill mx-md-5" onclick="clickFormNotVisible()">Fechar</button>
-							</a>
-						</div>
-					</form>
 			</div>
 		</div>
 	</nav>
@@ -131,53 +109,53 @@
 		<section class="w-100 h-auto s1">
 
 				<!-- TODO: Form -->
-				<form class="w-75 mx-auto h-auto" action="UpdatePacoteServlet" method="POST">
+				<form class="w-75 mx-auto h-auto" action="UpdatePacoteServlet" enctype="multipart/form-data" method="POST">
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">Id</span>
-						<input type="text" class="form-control" id="id" name="id" value="${pacote.id}" readonly value="${pacote.id}">
+						<input type="text" class="form-control" id="id" name="id" value="${pacote.id}" readonly value="${pacote.id}" />
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">titulo</span>
-						<input type="text" class="form-control" placeholder="Qualquer titulo referente a viagem" aria-label="titulo" aria-describedby="basic-addon1" name="titulo" value="${pacote.titulo}">
-					</div>
-
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="basic-addon1">imagem</span>
-						<input type="text" class="form-control" placeholder="imagem" aria-label="imagem" aria-describedby="basic-addon1" name="imagem" value="${pacote.imagem}">
+						<input type="text" class="form-control" placeholder="Qualquer titulo referente a viagem" aria-label="titulo" aria-describedby="basic-addon1" name="titulo" value="${pacote.titulo}" />
 					</div>
 
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">status</span>
-						<input type="text" class="form-control" placeholder="status" aria-label="status" aria-describedby="basic-addon1" name="status" value="${pacote.status}">
+						<input type="text" class="form-control" placeholder="status" aria-label="status" aria-describedby="basic-addon1" name="status" value="${pacote.status}" />
 					</div>
 
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">valor desconto</span>
-						<input type="text" class="form-control" placeholder="valor numerico, sera convertido em porcentagem" aria-label="valorDesconto" aria-describedby="basic-addon1" name="valorDesconto" value="${pacote.valorDesconto}">
+						<input type="text" class="form-control" placeholder="valor numerico, sera convertido em porcentagem" aria-label="valorDesconto" aria-describedby="basic-addon1" name="valorDesconto" value="${pacote.valorDesconto}" />
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">preco total</span>
-						<input type="number" class="form-control" placeholder="preco total bruto do pacote" aria-label="precoTotal" aria-describedby="basic-addon1" name="precoTotal" max="10000" value="${pacote.precoTotal}">
+						<input type="number" class="form-control" placeholder="preco total bruto do pacote" aria-label="precoTotal" aria-describedby="basic-addon1" name="precoTotal" max="10000" value="${pacote.precoTotal}" />
 					</div>
 
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">possui hospedagem</span>
-						<input type="text" class="form-control" placeholder="possui hospedagem? sim ou não" aria-label="possuiHospedagem" aria-describedby="basic-addon1" name="possuiHospedagem" value="${pacote.possuiHospedagem}">
+						<input type="text" class="form-control" placeholder="possui hospedagem? sim ou não" aria-label="possuiHospedagem" aria-describedby="basic-addon1" name="possuiHospedagem" value="${pacote.possuiHospedagem}" />
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">meio transporte</span>
-						<input type="text" class="form-control" placeholder="meio de transporte" aria-label="meioTransporte" aria-describedby="basic-addon1" name="meioTransporte" value="${pacote.meioTransporte}">
+						<input type="text" class="form-control" placeholder="meio de transporte" aria-label="meioTransporte" aria-describedby="basic-addon1" name="meioTransporte" value="${pacote.meioTransporte}" />
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">prazo cancelamento</span>
-						<input type="text" class="form-control" placeholder="prazo para cancelamento" aria-label="prazoCancelamento" aria-describedby="basic-addon1" name="prazoCancelamento" value="${pacote.prazoCancelamento}">
+						<input type="text" class="form-control" placeholder="prazo para cancelamento" aria-label="prazoCancelamento" aria-describedby="basic-addon1" name="prazoCancelamento" value="${pacote.prazoCancelamento}" />
 					</div>
 
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">data viagem</span>
-						<input type="date" class="form-control" placeholder="data da viagem" aria-label="dataViagem" aria-describedby="basic-addon1" name="dataViagem" value="${pacote.dataViagem}">
+						<input type="date" class="form-control" placeholder="data da viagem" aria-label="dataViagem" aria-describedby="basic-addon1" name="dataViagem" value="${pacote.dataViagem}" />
 					</div>
 
+					<div class="form-group mb-3">
+						<span class="input-group-text" id="basic-addon1">Imagem do Pacote</span>
+						<input type="file" class="form-control"  multiple="multiple" aria-describedby="basic-addon1" name="imagemPacote" value="${pacote.imagem}" />
+					</div>
+					
 					<div class="form-group mb-3"></div>
 					<div class="col-auto">
 						<button type="submit" class="btn btn-primary mb-3">Enviar</button>
