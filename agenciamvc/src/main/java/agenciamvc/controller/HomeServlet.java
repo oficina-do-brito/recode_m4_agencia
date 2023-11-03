@@ -1,11 +1,16 @@
 package agenciamvc.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DAO.PacoteViagemDAO;
+import model.PacoteViagem;
 
 @WebServlet("/HomeServlet")
 public class HomeServlet extends HttpServlet {
@@ -15,10 +20,12 @@ public class HomeServlet extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	PacoteViagemDAO pDAO = new PacoteViagemDAO();
+		ArrayList<PacoteViagem> pacotes= pDAO.findAll();
+		
+		request.setAttribute("pacotes", pacotes);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-//		response.sendRedirect("index.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

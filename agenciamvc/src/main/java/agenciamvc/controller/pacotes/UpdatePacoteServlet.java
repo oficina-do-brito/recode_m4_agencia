@@ -62,7 +62,7 @@ public class UpdatePacoteServlet extends HttpServlet {
 		p.setDataViagem(LocalDate.parse(request.getParameter("dataViagem")));
 
 		pDAO.update(p);
-		response.sendRedirect("ManagePacotesServlets");
+		response.sendRedirect("ReadPacoteServlet");
 	}
 
 }

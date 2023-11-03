@@ -24,7 +24,7 @@ public class DeletePacoteServlet extends HttpServlet {
 		PacoteViagemDAO pcDao = new PacoteViagemDAO();
 		pcDao.deleteById(id);
 		
-		response.sendRedirect("ManagePacotesServlets");
+		response.sendRedirect("ReadPacoteServlet");
 	}
 
 }

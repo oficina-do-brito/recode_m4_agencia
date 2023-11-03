@@ -37,13 +37,13 @@
 						aria-current="page" href="HomeServlet">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="DestinoServlet">Destinos</a></li>
-					<li class="nav-item"><a class="nav-link" href="#promocoes">Promoções</a>
+					<li class="nav-item"><a class="nav-link" href="HomeServlet#promocoes">Promoções</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
 						href="ContatoServlet">Contatos</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="ManagePacotesServlets">Manage</a>
+						href="ReadPacoteServlet">Manage</a>
 					</li>
 				</ul>
 			</div>

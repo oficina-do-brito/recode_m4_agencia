@@ -60,7 +60,7 @@ public class CreatePacoteServlet extends HttpServlet {
 		
 		pDAO.create(p);
 
-		response.sendRedirect("ManagePacotesServlets");
+		response.sendRedirect("ReadPacoteServlet");
 	}
 
 }

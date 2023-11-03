@@ -37,7 +37,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="DestinoServlet">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="DestinoServlet#promocoes">Promoções</a></li>
+						href="HomeServlet#promocoes">Promoções</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="ContatoServlet">Contatos</a></li>
 				</ul>
@@ -64,7 +64,7 @@
 							<li><a href="#"> <span class="icon"><i
 										class="bi bi-person"></i></span> <span class="text">Profile</span>
 							</a></li>
-							<li><a href="ManagePacotesServlets"> <span class="icon"><i
+							<li><a href="ReadPacoteServlet"> <span class="icon"><i
 								class="bi bi-box-seam"></i></span> <span class="text">Pacotes</span>
 							</a></li>
 							<li><a href="#"> <span class="icon"><i
